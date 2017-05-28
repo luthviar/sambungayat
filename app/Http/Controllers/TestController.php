@@ -20,7 +20,7 @@ class TestController extends Controller
 		 $fullAyat = $t->ayah('112:'.$randomAyat)->data->text;
 		 
 		 $randomY =  rand(0, mb_strlen($fullAyat)/4);
-		 $randomZ =  rand($randomY + 1, mb_strlen($fullAyat)/4);
+		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
 		 
 	
 		$sisaAyatAwal = mb_substr($fullAyat,0,$randomY,'utf-8');

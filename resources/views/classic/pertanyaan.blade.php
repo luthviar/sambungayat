@@ -2,7 +2,12 @@
 <p>Apakah sambungan dari ayat ini?  </p>
 
 
-<p>{{$sisaAyatAwal}} <span> ...<span> {{$sisaAyatAkhir}}
+<p> Akhir {{$sisaAyatAwal}} 
+	<span> ...<span> 
+				{{$sisaAyatAkhir}} Awal
+</p>
+
+
 	
  
 	</p>
