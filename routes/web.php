@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/test','TestController@index');
+
+Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@index2']);
+
