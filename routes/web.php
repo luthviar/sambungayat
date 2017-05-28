@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test','TestController@index');
 
-Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@index2']);
+Route::get('/','TestController@index');
+
+Route::post('/','TestController@index_submit');
+
+Route::get('/test',['as' => '/test','uses' => 'TestController@awal_pertanyaan']);
+
+Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
 

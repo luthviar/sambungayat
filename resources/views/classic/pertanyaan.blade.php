@@ -1,5 +1,5 @@
 
-<p>Apakah sambungan dari ayat ini?  </p>
+<p>Apakah sambungan  dari ayat ini?  </p>
 
 
 <p> Akhir {{$sisaAyatAwal}} 

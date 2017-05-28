@@ -3,21 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
+use Illuminate\Support\Facades\DB;
+use Validator;
+use Redirect;
+
 
 class TestController extends Controller
 {
-	public function index2($valueBenar){
+	
+	public function index(){
+	
+		return view('classic/list_surah');
+
+	}
+	
+	public function index_submit(){
+	session_start();
+		$_SESSION["surah"] = Input::get('listSurah');
+		
+	
+		 return redirect()->route('/test');
+
+	}
+	
+	public function pertanyaan($valueBenar){
 		
 		session_start();
 		$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + $valueBenar  ;	
 	
-		 $randomAyat =  rand(2, 4);
+		 $randomAyat =  rand(1, 4);
 		 $t = new \AlQuranCloud\ApiClient\Client();
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
 		//sisaAyatAkhir   (fullayat,  y+z, panjang ayat, 'utf-8')
 		//X selalu 0
-		 $fullAyat = $t->ayah('112:'.$randomAyat)->data->text;
+		 $fullAyat = $t->ayah($_SESSION["surah"].':'.$randomAyat)->data->text;
 		 
 		 $randomY =  rand(0, mb_strlen($fullAyat)/4);
 		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
@@ -76,10 +98,17 @@ class TestController extends Controller
 	}
 	
 	
-	public function index() {
-		session_start();
+	public function awal_pertanyaan() {
+			session_start();
+	
+		
 	   $t = new \AlQuranCloud\ApiClient\Client();
-	   $fullAyat = $t->ayah('112:3')->data->text;
+	    $randomAyat =  rand(1, 4);
+		$surah = $_SESSION["surah"];
+		   
+		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
+			
+			
 		$_SESSION["counterBenar"] = 0;	
 				
 		
