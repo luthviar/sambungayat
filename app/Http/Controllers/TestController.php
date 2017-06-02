@@ -23,9 +23,7 @@ class TestController extends Controller
 	session_start();
 		$_SESSION["surah"] = Input::get('listSurah');
 		
-	
 		 return redirect()->route('/test');
-
 	}
 	
 	public function pertanyaan($valueBenar){
@@ -51,11 +49,7 @@ class TestController extends Controller
 		
 		$sisaAyatAkhir = mb_substr($fullAyat, $randomZ + $randomY,mb_strlen($fullAyat) ,'utf-8');
 		
-	
-		
-		
-		
-		//randomAyat di AlQuran
+			//randomAyat di AlQuran
 		$randomPertama =  rand(0, 1000);
 		$randomKedua =  rand(1000, 2000);
 		$randomKetiga =   rand(2000, 3000);
@@ -65,36 +59,13 @@ class TestController extends Controller
 		$opsi2 = mb_substr ($t->ayah($randomKedua)->data->text, 6, 10, 'utf-8' );
 		$opsi3 = mb_substr ($t->ayah($randomKetiga)->data->text, 6, 10, 'utf-8' );
 		$opsi4 = mb_substr ($t->ayah($randomKeempat)->data->text, 6, 10, 'utf-8' );
-	
-		
-		
-		
-		
-		$randomPosisi = rand(1,4);
-		
 
-		
-		
-		
-	
-		
-		
-		
+		$randomPosisi = rand(1,4);
 		//return $opsi1;
 
 		return view('classic/pertanyaan' , array( 'opsi1' => $opsi1,'opsi2' => $opsi2,'opsi3'=> $opsi3, 'fullAyat' => $fullAyat,'sisaAyatAwal'=>$sisaAyatAwal ,'sisaAyatAkhir' => $sisaAyatAkhir, 'substringAyat'=> $substringAyat,
 		'randomPosisi'=> $randomPosisi, 'opsi4'=> $opsi4
-		
-		
 		));
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	
@@ -107,21 +78,15 @@ class TestController extends Controller
 		$surah = $_SESSION["surah"];
 		   
 		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
-			
-			
+
 		$_SESSION["counterBenar"] = 0;	
 				
-		
-		
 		$sisaAyatAwal = mb_substr($fullAyat,0,6,'utf-8');
 		
 		$substringAyat =mb_substr($fullAyat,6,10,'utf-8');
 		
 		$sisaAyatAkhir = mb_substr($fullAyat,16,mb_strlen($fullAyat) ,'utf-8');
-		
-		
-		
-		
+
 		//substringAyat  (fullayat, x , y, 'utf-8')
 		//sisaAyatAwal   (fullayat, 0 , x, 'utf-8')
 		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
@@ -136,21 +101,9 @@ class TestController extends Controller
 		$opsi2 = mb_substr ($t->ayah($randomKedua)->data->text, 6, 10, 'utf-8' );
 		$opsi3 = mb_substr ($t->ayah($randomKetiga)->data->text, 6, 10, 'utf-8' );
 		$opsi4 = mb_substr ($t->ayah($randomKeempat)->data->text, 6, 10, 'utf-8' );
-	
-		
-		
-		
-		
-		$randomPosisi = rand(1,4);
-		
 
-		
-		
-		
-		
-		
-		
-		
+		$randomPosisi = rand(1,4);
+
 		//return $opsi1;
 
 		return view('classic/pertanyaan' , array( 'opsi1' => $opsi1,'opsi2' => $opsi2,'opsi3'=> $opsi3, 'fullAyat' => $fullAyat,'sisaAyatAwal'=>$sisaAyatAwal ,'sisaAyatAkhir' => $sisaAyatAkhir, 'substringAyat'=> $substringAyat,
@@ -158,8 +111,6 @@ class TestController extends Controller
 		
 		
 		));
-		
-	
 		//return substr($x, 5);
 	}
 }
