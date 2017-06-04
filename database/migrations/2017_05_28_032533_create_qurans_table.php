@@ -14,10 +14,10 @@ class CreateQuransTable extends Migration
     public function up()
     {
         Schema::create('qurans', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-            $table->string('namesuraheng');
-
+            $table->integer('id');
+            $table->string('IDSurat');
+            $table->string('Word');
+            $table->string('Trans');
         });
     }
 

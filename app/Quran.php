@@ -8,6 +8,6 @@ class Quran extends Model
 {
     protected $table = 'qurans';
     protected $primaryKey = 'id';
-    protected $fillable = ['namesuraheng'];
+    protected $fillable = ['IDSurat','Word','Trans'];
     public $timestamps = false;
 }

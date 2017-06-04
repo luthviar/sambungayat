@@ -14,7 +14,27 @@ class TestController extends Controller
 {
 	
 	public function index(){
-	
+        $t = new \AlQuranCloud\ApiClient\Client();
+//        dd($t->surah(2)->data->numberOfAyahs);
+
+        $listQuran = DB::table('qurans')
+            ->select('id','IDSurat','Word','Trans')
+            ->get();
+
+
+        $suratke_str = substr($listQuran[77430]->IDSurat,0,3);
+        $suratke_int = (int)$suratke_str;
+
+        dd($suratke_int);
+
+        $ayatke_str = substr($listQuran[76920]->IDSurat,2,1);
+        $ayatke_int = (int)$ayatke_str;
+
+//        dd($ayatke_int +99);
+//        return view('home',[
+//            'listQuran' => $listQuran
+//        ]);
+
 		return view('classic/list_surah');
 
 	}
@@ -30,8 +50,8 @@ class TestController extends Controller
 		
 		session_start();
 		$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + $valueBenar  ;	
-	
-		 $randomAyat =  rand(1, 4);
+
+		 $randomAyat =  rand(1, 8);
 		 $t = new \AlQuranCloud\ApiClient\Client();
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
@@ -63,8 +83,17 @@ class TestController extends Controller
 		$randomPosisi = rand(1,4);
 		//return $opsi1;
 
-		return view('classic/pertanyaan' , array( 'opsi1' => $opsi1,'opsi2' => $opsi2,'opsi3'=> $opsi3, 'fullAyat' => $fullAyat,'sisaAyatAwal'=>$sisaAyatAwal ,'sisaAyatAkhir' => $sisaAyatAkhir, 'substringAyat'=> $substringAyat,
-		'randomPosisi'=> $randomPosisi, 'opsi4'=> $opsi4
+		return view('classic/pertanyaan' ,
+            array(
+                'opsi1' => $opsi1,
+                'opsi2' => $opsi2,
+                'opsi3'=> $opsi3,
+                'fullAyat' => $fullAyat,
+                'sisaAyatAwal'=>$sisaAyatAwal ,
+                'sisaAyatAkhir' => $sisaAyatAkhir,
+                'substringAyat'=> $substringAyat,
+                'randomPosisi'=> $randomPosisi,
+                'opsi4'=> $opsi4
 		));
 	}
 	

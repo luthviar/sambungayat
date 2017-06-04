@@ -50,6 +50,25 @@ class QuranController extends Controller
         //
     }
 
+    public function pertanyaan($nomor) {
+        $t = new \AlQuranCloud\ApiClient\Client();
+
+//        $randomAyat =  rand(1, 4);
+        //112 = al ikhlas
+        $fullAyat = $t->ayah('112:3')->data->text;
+
+        $pjgString = strlen($fullAyat);
+
+        $sub = mb_substr($fullAyat,14,1,'utf-8');
+//        $sub = substr($fullAyat,0,13);
+
+        return view('classic/pertanyaan-luthfi',[
+            'pertanyaan' => $fullAyat,
+            'panjang' => $pjgString,
+            'sub' => $sub
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
