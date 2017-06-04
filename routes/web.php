@@ -46,3 +46,11 @@ Route::get('/test',['as' => '/test','uses' => 'TestController@awal_pertanyaan'])
 Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
 
 Route::get('/classic/{nomor}', 'QuranController@pertanyaan');
+
+Route::get('contohquiz', function () {
+    return view('quiz');
+});
+
+Route::get('index', function () {
+    return view('index');
+});

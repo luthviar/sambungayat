@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
 			$table->string('alamat')->nullable();
 			$table->Date('tanggal_lahir')->nullable();
 			$table->timestamps(); 
+			  });
 
     }
 
