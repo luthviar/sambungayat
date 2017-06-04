@@ -12,6 +12,12 @@
 */
 
 
+// Daftar Surat Classic
+Route::get('/classic/pilihsurat','PertanyaanController@index');
+
+// Mulai Pertanyaan Classic
+Route::get('/classic/{id}','PertanyaanController@quest');
+
 
 Route::get('/',['as' => '/','uses' => 'UserController@index']);
 
@@ -39,3 +45,4 @@ Route::get('/test',['as' => '/test','uses' => 'TestController@awal_pertanyaan'])
 
 Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
 
+Route::get('/classic/{nomor}', 'QuranController@pertanyaan');

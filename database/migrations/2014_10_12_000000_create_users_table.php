@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+
         Schema::create('user', function (Blueprint $table) {
             $table->increments('id_user');
             $table->string('username');
@@ -22,7 +23,7 @@ class CreateUsersTable extends Migration
 			$table->string('alamat')->nullable();
 			$table->Date('tanggal_lahir')->nullable();
 			$table->timestamps(); 
-        });
+
     }
 
     /**

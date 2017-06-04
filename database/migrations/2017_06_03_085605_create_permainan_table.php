@@ -17,6 +17,7 @@ class CreatePermainanTable extends Migration
             $table->increments('id_permainan');
             $table->string('jenis_permainan');
 			$table->timestamps(); 
+
         });
     }
 

@@ -10,7 +10,7 @@
 
 	
  
-	</p>
+
 
 
 
@@ -78,10 +78,5 @@
 						  
 						  
 						 </table> 
-						 
-						 
-	<?php 
-		
-		echo "<p> Score ".$_SESSION["counterBenar"]."</p>";
-		?>
- 
+
+						 <p>{{ $_SESSION["counterBenar"] }}</p>

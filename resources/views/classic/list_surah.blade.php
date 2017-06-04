@@ -2,6 +2,7 @@
   <form class="form-horizontal" method="post" action="">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<select name="listSurah" class="form-control select2" style="width: 100%;" required >
+				
 										
 													<option value="112">Surat Al-Ikhlas (Ikhlas)</option>
 											
@@ -16,6 +17,7 @@
 		</br>
 		</br>
 		</br>
+
 	<center><button  class="btn btn-primary" type="submit">Submit</button></center>
             <br>
         </div>
