@@ -37,6 +37,6 @@ class CreatePilihanGandaTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('pilihan_ganda');
     }
 }

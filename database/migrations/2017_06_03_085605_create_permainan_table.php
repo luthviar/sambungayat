@@ -27,6 +27,6 @@ class CreatePermainanTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('permainan');
     }
 }
