@@ -47,15 +47,13 @@ Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@perta
 
 Route::get('/classic/{nomor}', 'QuranController@pertanyaan');
 
-Route::get('contohquiz', function () {
-    return view('quiz');
-});
-
 Route::get('/home',['as' => '/home','uses' => 'UserController@home']);
 
 Route::get('/contact',['as' => '/contact','uses' => 'UserController@contact_us']);
 
 Route::get('/quiz',['as' => '/quiz','uses' => 'UserController@quiz']);
+
+Route::get('/quiz2',['as' => '/quiz2','uses' => 'UserController@quiz2']);
 
 
 // Sementara untuk lihat template asli

@@ -14,6 +14,7 @@
 		<!-- main css -->
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -94,7 +95,7 @@
 			<script type="text/javascript" src="{{ URL::asset('js/skel.min.js') }}"></script>
 			<script type="text/javascript" src="{{ URL::asset('js/util.js') }}"></script>
 			<script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
-	
+
 
 	</body>
 </html>

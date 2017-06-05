@@ -202,6 +202,11 @@ class UserController extends Controller
 			session_start();
 			return view('quiz');
 	}
+
+	public function quiz2(){
+			session_start();
+			return view('quiz2');
+	}
 	
 	
 	
