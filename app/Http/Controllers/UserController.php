@@ -126,13 +126,14 @@ class UserController extends Controller
 	            ->withInput();
     }
 	
-	 public function logout() {
+	public function logout() {
 		session_start();
         session_unset();
         session_destroy();
 		 return redirect()->route('/login');
 		
 	}
+	
 	public function ganti_profil(){
 			session_start();
 			return view('profil');
@@ -184,6 +185,22 @@ class UserController extends Controller
 				return Redirect::to('profil')
 					->withErrors($validator)
 					->withInput();
+	}
+
+
+	public function contact_us(){
+			session_start();
+			return view('contact');
+	}
+
+	public function home(){
+			session_start();
+			return view('index');
+	}
+
+	public function quiz(){
+			session_start();
+			return view('quiz');
 	}
 	
 	

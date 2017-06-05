@@ -23,13 +23,13 @@
 					<h1><a href="#">SambungAyat</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="{{ route('/') }}">Menu</a></li>
 							<li>
 								<a href="#" class="icon fa-angle-down">Layouts</a>
 								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
+									<li><a href="#">Generic</a></li>
+									<li><a href="#">Contact</a></li>
+									<li><a href="#">Elements</a></li>
 									<li>
 										<a href="#">Submenu</a>
 										<ul>
@@ -40,8 +40,27 @@
 										</ul>
 									</li>
 								</ul>
+							</li>						
+							<li>
+								<a href="#" class="icon fa-user">
+									<?php 
+										if(isset($_SESSION["user"])){
+										    
+										    echo   $_SESSION["user"];
+										}
+										            //jika belum login
+										else {
+										    
+										   header( "refresh:0;/login" );
+										   return "";
+										}
+									?>
+								</a>
+								<ul>
+									<li><a href="#">Lihat Profil</a></li>
+								</ul>	
 							</li>
-							<li><a href="#" class="button">Sign Up</a></li>
+							<li><a href="{{ route('/logout') }}" class="button">Logout</a></li>
 						</ul>
 					</nav>
 				</header>

@@ -5,69 +5,69 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<title>SambungAyat</title>
-		
-		<!-- main css -->
-		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-		<body class="landing">
-		<div id="page-wrapper">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<title>SambungAyat</title>
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<h1><a href="index.html">Alpha</a> by HTML5 UP</h1>
-					<nav id="nav">
+	<!-- main css -->
+	<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body class="landing">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="{{ route('/home') }}">SambungAyat</a></h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="{{ route('/home') }}">Home</a></li>
+					<li><a href="{{ route('/contact') }}">Hubungi Kami</a></li>
+					<li>
+						<a href="#" class="icon fa-angle-down">Layouts</a>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="elements.html">Elements</a></li>
 							<li>
-								<a href="#" class="icon fa-angle-down">Layouts</a>
+								<a href="#">Submenu</a>
 								<ul>
-									<li><a href="generic.html">Generic</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li><a href="elements.html">Elements</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option One</a></li>
-											<li><a href="#">Option Two</a></li>
-											<li><a href="#">Option Three</a></li>
-											<li><a href="#">Option Four</a></li>
-										</ul>
-									</li>
+									<li><a href="#">Option One</a></li>
+									<li><a href="#">Option Two</a></li>
+									<li><a href="#">Option Three</a></li>
+									<li><a href="#">Option Four</a></li>
 								</ul>
 							</li>
-							<li><a href="#" class="button">Sign Up</a></li>
 						</ul>
-					</nav>
-				</header>
+					</li>
+					<li><a href="{{ route('/registrasi') }}" class="button">Daftar</a></li>
+				</ul>
+			</nav>
+		</header>
 
-			<!-- Banner -->
-				<section id="banner">
-					<h2>Alpha</h2>
-					<p>Another fine responsive site template freebie by HTML5 UP.</p>
-					<ul class="actions">
-						<li><a href="#" class="button special">Sign Up</a></li>
-						<li><a href="#" class="button">Learn More</a></li>
-					</ul>
-				</section>
+		<!-- Banner -->
+		<section id="banner">
+			<h2>SambungAyat</h2>
+			<p>Permainan menyenangkan yang akan membantu anda mengingat kembali hafalan Al-Qur'an</p>
+			<ul class="actions">
+				<li><a href="{{ route('/login') }}" class="button special">Main sekarang</a></li>
+			</ul>
+		</section>
 
-			<!-- Main -->
-				<section id="main" class="container">
+		<!-- Main -->
+		<section id="main" class="container">
 
-					<section class="box special">
-						<header class="major">
-							<h2>Introducing the ultimate mobile app
-							<br />
-							for doing stuff with your phone</h2>
-							<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
+			<section class="box special">
+				<header class="major">
+					<h2>Introducing the ultimate website app
+						<br />
+						for having fun and staying close with Al-Qur'an</h2>
+						<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
 							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image featured"><img src="images/pic01.png" alt="" /></span>
 					</section>
 
 					<section class="box special features">
@@ -124,9 +124,37 @@
 						</div>
 					</div>
 
+					<section class="box special">
+						<header class="major">
+							<h2>Cara Bermain</h2>
+						</header>
+						<div class="video-container">
+							<iframe width="854" height="480" src="https://www.youtube.com/embed/ZeZxyClR59Y" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<style type="text/css">
+							.video-container {
+								position:relative;
+								padding-bottom:56.25%;
+								padding-top:30px;
+								height:0;
+								overflow:hidden;
+							}
+
+							.video-container iframe, .video-container object, .video-container embed {
+								position:absolute;
+								top:0;
+								left:0;
+								width:100%;
+								height:100%;
+							}
+						</style>	
+					</section>
+
+					
+
 				</section>
 
-			<!-- CTA -->
+				<!-- CTA -->
 				<section id="cta">
 
 					<h2>Sign up for beta access</h2>
@@ -145,7 +173,7 @@
 
 				</section>
 
-			<!-- Footer -->
+				<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -156,13 +184,13 @@
 						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; SambungAyat. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 
-		</div>
+			</div>
 
-		<!-- Scripts -->
+			<!-- Scripts -->
 			<script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
 			<script type="text/javascript" src="{{ URL::asset('js/jquery.dropotron.min.js') }}"></script>
 			<script type="text/javascript" src="{{ URL::asset('js/jquery.scrollgress.min.js') }}"></script>
@@ -170,7 +198,7 @@
 			<script type="text/javascript" src="{{ URL::asset('js/util.js') }}"></script>
 			<script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
 
-	</body>
-</html>
+		</body>
+		</html>
 
 

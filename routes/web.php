@@ -51,6 +51,20 @@ Route::get('contohquiz', function () {
     return view('quiz');
 });
 
-Route::get('index', function () {
-    return view('index');
+Route::get('/home',['as' => '/home','uses' => 'UserController@home']);
+
+Route::get('/contact',['as' => '/contact','uses' => 'UserController@contact_us']);
+
+Route::get('/quiz',['as' => '/quiz','uses' => 'UserController@quiz']);
+
+
+// Sementara untuk lihat template asli
+
+Route::get('elements', function () {
+    return view('elements');
 });
+
+Route::get('generic', function () {
+    return view('generic');
+});
+
