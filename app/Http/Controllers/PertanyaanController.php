@@ -20,15 +20,16 @@ class PertanyaanController extends Controller
 
         $listQuran = DB::table('qurans')
             ->select('id','IDSurat','Word','Trans')
+            ->limit(10)
             ->get();
+//        dd($listQuran[0]->Word);
 
-
-        $suratke_str = substr($listQuran[77430]->IDSurat,0,3);
+        $suratke_str = substr($listQuran[2]->IDSurat,0,3);
         $suratke = (int)$suratke_str;
 
 
 
-        $ayatke_str = substr($listQuran[76920]->IDSurat,2,1);
+        $ayatke_str = substr($listQuran[2]->IDSurat,2,1);
         $ayatke = (int)$ayatke_str;
 
 //        dd($ayatke_int +99);
