@@ -41,22 +41,53 @@ Route::post('/ganti_profil',['as' => '/ganti_profil','uses' => 'UserController@g
 
 
 
-Route::get('/test',['as' => '/test','uses' => 'TestController@awal_pertanyaan']);
-
-Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
-
 Route::get('/classic/{nomor}', 'QuranController@pertanyaan');
 
 Route::get('/home',['as' => '/home','uses' => 'UserController@home']);
 
 Route::get('/contact',['as' => '/contact','uses' => 'UserController@contact_us']);
 
-Route::get('/quiz',['as' => '/quiz','uses' => 'UserController@quiz']);
+Route::get('/quiz',['as' => '/quiz','uses' => 'UserController@list_surah']);
+
+Route::post('/quiz',['as' => '/quiz','uses' => 'UserController@list_surah_submit']);
+
+Route::get('/quiz_classic_first',['as' => '/quiz_classic_first','uses' => 'UserController@quiz_classic_first']);
+
+
+Route::post('/quiz_classic_first',['as' => 'quiz_classic_first_submit/', 'uses' => 'UserController@quiz_classic_first_submit']);
+
 
 Route::get('/quiz2',['as' => '/quiz2','uses' => 'UserController@quiz2']);
 
 
 // Sementara untuk lihat template asli
+
+
+
+
+
+//kodingan versi1
+
+Route::get('/lol','TestController@index');
+
+Route::post('/lol','TestController@index_submit');
+
+Route::get('/test',['as' => '/test','uses' => 'UserController@awal_pertanyaan']);
+
+Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('elements', function () {
     return view('elements');

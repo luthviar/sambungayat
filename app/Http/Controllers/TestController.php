@@ -12,29 +12,8 @@ use Redirect;
 
 class TestController extends Controller
 {
-	
 	public function index(){
-        $t = new \AlQuranCloud\ApiClient\Client();
-//        dd($t->surah(2)->data->numberOfAyahs);
-
-        $listQuran = DB::table('qurans')
-            ->select('id','IDSurat','Word','Trans')
-            ->get();
-
-
-        $suratke_str = substr($listQuran[77430]->IDSurat,0,3);
-        $suratke_int = (int)$suratke_str;
-
-        dd($suratke_int);
-
-        $ayatke_str = substr($listQuran[76920]->IDSurat,2,1);
-        $ayatke_int = (int)$ayatke_str;
-
-//        dd($ayatke_int +99);
-//        return view('home',[
-//            'listQuran' => $listQuran
-//        ]);
-
+	
 		return view('classic/list_surah');
 
 	}
@@ -43,7 +22,9 @@ class TestController extends Controller
 	session_start();
 		$_SESSION["surah"] = Input::get('listSurah');
 		
-		 return redirect()->route('/test');
+	
+		 return redirect()->route('/quiz');
+
 	}
 	
 	public function pertanyaan($valueBenar){
