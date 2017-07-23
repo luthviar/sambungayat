@@ -8,13 +8,13 @@
   <h2>Ubah Profil</h2>
 </header>
 <div class="box">
-  <p>Setelah Mengisi Profil anda akan dikeluarkan secara otomatis. silahkan login kembali<p>
+  <p>Setelah berhasil mengubah profil anda akan dikeluarkan secara otomatis. Silahkan login kembali<p>
         
   <form method="post" action="#">
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <div class="row uniform 50%">
     <div class="12u">
-      <input type="text" name="alamat" value="" placeholder="Alamat" />
+      <input type="text" name="alamat" value="" placeholder="Alamat (Isi dengan nama kota)" />
     </div>
   </div>
 
@@ -26,7 +26,7 @@
 
   <div class="row uniform 50%">
     <div class="12u">
-      <input type="text" name="tanggal" value="" placeholder="Waktu Bimbingan" />
+      <input type="text" name="tanggal" value="" placeholder="Waktu Bimbingan. Misal: Senin, 12.00-15.00" />
     </div>
   </div>
 

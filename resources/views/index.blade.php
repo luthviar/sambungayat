@@ -23,25 +23,8 @@
 			<h1><a href="{{ route('/home') }}">SambungAyat</a></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="{{ route('/home') }}">Home</a></li>
+					<li><a href="{{ route('/home') }}">Beranda</a></li>
 					<li><a href="{{ route('/contact') }}">Hubungi Kami</a></li>
-					<li>
-						<a href="#" class="icon fa-angle-down">Layouts</a>
-						<ul>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li>
-								<a href="#">Submenu</a>
-								<ul>
-									<li><a href="#">Option One</a></li>
-									<li><a href="#">Option Two</a></li>
-									<li><a href="#">Option Three</a></li>
-									<li><a href="#">Option Four</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
 					<li><a href="{{ route('/registrasi') }}" class="button">Daftar</a></li>
 				</ul>
 			</nav>
@@ -129,7 +112,7 @@
 							<h2>Cara Bermain</h2>
 						</header>
 						<div class="video-container">
-							<iframe width="854" height="480" src="https://www.youtube.com/embed/ZeZxyClR59Y" frameborder="0" allowfullscreen></iframe>
+							<iframe width="854" height="480" src="https://www.youtube.com/embed/KF3-4TYQV0s" frameborder="0" allowfullscreen></iframe>
 						</div>
 						<style type="text/css">
 							.video-container {

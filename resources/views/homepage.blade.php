@@ -40,13 +40,13 @@ $is_terisi = true;
 @endphp
 
 @if($is_terisi == true)
-<p>
-Anda belum mengisi profil anda. Silahkan ganti profil anda
 
-<a a href= "{{ route('/ganti_profil') }}">
+<div class="alert alert-warning">
+  <strong>Warning!</strong> Anda belum mengisi profil anda. Silahkan ganti profil anda <a a href= "{{ route('/ganti_profil') }}">
 disini
-</a>
-</p>
+</a>.
+</div>
+
 @endif
 
 <section class="box">
@@ -63,19 +63,6 @@ disini
             <div class="6u"><a href="{{ route('/')}}"><span class="image fit"><img src="images/menu3.png" alt="" /></span></a></div>
             <div class="6u"><a href="{{ route('/')}}"><span class="image fit"><img src="images/menu4.png" alt="" /></span></a></div>
         </div>
-
-
-        <div class="row no-collapse 50% uniform">
-            <div class="4u"><a href="{{ route('/')}}"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></a></div>
-            <div class="4u"><a href="{{ route('/')}}"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></a></div>
-            <div class="4u"><a href="{{ route('/')}}"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></a></div>
-        </div>
-
-        <div class="row no-collapse 50% uniform">
-            <div class="3u"><span class="image fit"></span></div>
-            <div class="6u"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-        </div>
-
 
     </div>
 

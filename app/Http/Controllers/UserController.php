@@ -205,7 +205,7 @@ class UserController extends Controller
 	}
 	//ambil surah
 	public function list_surah(){
-	
+		session_start();
 		return view('classic/list_surah');
 
 	}
