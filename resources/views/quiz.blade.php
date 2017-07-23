@@ -131,7 +131,7 @@
 					
 			</form>	
 				<p>skor :{{ $_SESSION["counterBenar"] }}</p>
-				<p>jumlah pertanyaan terjawab dan terlewat :{{ $_SESSION["jumlahPertanyaan"] }} dari 5 pertanyaan</p>
+				<p>Pertayaaan :{{ $_SESSION["jumlahPertanyaan"] }} dari 5 pertanyaan</p>
 
 
 @endsection

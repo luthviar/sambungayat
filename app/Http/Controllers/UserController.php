@@ -221,11 +221,10 @@ class UserController extends Controller
 	}
 	//pertanyaan pertama
 	public function quiz_classic_first(){
-			session_start();
-			
-			
-			
 		
+		session_start();
+			
+	
 	   $t = new \AlQuranCloud\ApiClient\Client();
 	    $randomAyat =  rand(1, 4);
 		$surah = $_SESSION["surah"];
@@ -239,6 +238,14 @@ class UserController extends Controller
 		if(!isset($_SESSION["jumlahPertanyaan"])	){
 			$_SESSION["jumlahPertanyaan"] = 1;	
 		
+		}
+		else{
+				if ($_SESSION["jumlahPertanyaan"] > 5) {
+					$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+				} 
 		}
 				
 		$sisaAyatAwal = mb_substr($fullAyat,0,6,'utf-8');
@@ -303,6 +310,14 @@ class UserController extends Controller
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
 		} 
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
+		
+		if ($_SESSION["jumlahPertanyaan"] > 5) {
+			$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+		} 
+		
 		
 
 		 $randomAyat =  rand(1, 4);
