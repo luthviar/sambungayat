@@ -13,6 +13,7 @@ class UserPesanTables extends Migration
      */
     public function up()
     {
+	   Schema::create('user_log', function (Blueprint $table) {
 			$table->increments('id_user_pesan');
         	
 			
@@ -24,7 +25,12 @@ class UserPesanTables extends Migration
 			 $table->foreign('id_user')
             ->references('id_user')->on('user')
             ->onDelete('cascade');
-    }
+  
+  			
+			
+			$table->timestamps(); 
+        });
+	}
 
     /**
      * Reverse the migrations.
