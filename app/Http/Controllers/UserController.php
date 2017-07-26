@@ -12,7 +12,7 @@ use Validator;
 use Redirect;
 
 use App\UserModel;
-
+use Config;
 use Crypt;
 
 class UserController extends Controller
@@ -215,9 +215,12 @@ class UserController extends Controller
 		
 		$_SESSION["surah"] = Input::get('listSurah');
 		
-	
+		 $t = Config::get('constants.AL_QURAN');
+		
+		//return $t->ayah('10:10')->data->text;
+		
 		 return redirect()->route('/quiz_classic_first');
-
+	
 	}
 	//pertanyaan pertama
 	public function quiz_classic_first(){
@@ -225,10 +228,10 @@ class UserController extends Controller
 		session_start();
 			
 	
-	   $t = new \AlQuranCloud\ApiClient\Client();
+	   $t = Config::get('constants.AL_QURAN');
 	    $randomAyat =  rand(1, 4);
 		$surah = $_SESSION["surah"];
-		   
+		
 		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
 		if(!isset($_SESSION["counterBenar"])	){
 			$_SESSION["counterBenar"] = 0;	
@@ -259,15 +262,14 @@ class UserController extends Controller
 		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
 		
 	//randomAyat di AlQuran
-		$randomPertama =  rand(0, 1000);
-		$randomKedua =  rand(1000, 2000);
-		$randomKetiga =   rand(2000, 3000);
-		$randomKeempat =   rand(4000, 5000);
+		$randomPertama =  rand(0, 10);
+
 		
-		$opsi1 = mb_substr ($t->ayah($randomPertama)->data->text, 6, 10, 'utf-8' );
-		$opsi2 = mb_substr ($t->ayah($randomKedua)->data->text, 6, 10, 'utf-8' );
-		$opsi3 = mb_substr ($t->ayah($randomKetiga)->data->text, 6, 10, 'utf-8' );
-		$opsi4 = mb_substr ($t->ayah($randomKeempat)->data->text, 6, 10, 'utf-8' );
+		$opsi1 = mb_substr ($fullAyat, 1, 5, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 3, 7, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 2, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 10, 1, 'utf-8' );
+
 
 		$randomPosisi = rand(1,4);
 
@@ -321,7 +323,7 @@ class UserController extends Controller
 		
 
 		 $randomAyat =  rand(1, 4);
-		 $t = new \AlQuranCloud\ApiClient\Client();
+		 $t = Config::get('constants.AL_QURAN');
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
 		//sisaAyatAkhir   (fullayat,  y+z, panjang ayat, 'utf-8')
@@ -340,14 +342,13 @@ class UserController extends Controller
 		
 			//randomAyat di AlQuran
 		$randomPertama =  rand(0, 1000);
-		$randomKedua =  rand(1000, 2000);
-		$randomKetiga =   rand(2000, 3000);
-		$randomKeempat =   rand(4000, 5000);
+
 		
-		$opsi1 = mb_substr ($t->ayah($randomPertama)->data->text, 6, 10, 'utf-8' );
-		$opsi2 = mb_substr ($t->ayah($randomKedua)->data->text, 6, 10, 'utf-8' );
-		$opsi3 = mb_substr ($t->ayah($randomKetiga)->data->text, 6, 10, 'utf-8' );
-		$opsi4 = mb_substr ($t->ayah($randomKeempat)->data->text, 6, 10, 'utf-8' );
+		
+		$opsi1 = mb_substr ($fullAyat, 1, 5, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 4, 8, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 2, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 5, 10, 'utf-8' );
 
 		$randomPosisi = rand(1,4);
 		//return $opsi1;
