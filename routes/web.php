@@ -61,7 +61,16 @@ Route::get('/quiz2',['as' => '/quiz2','uses' => 'UserController@quiz2']);
 
 
 // Sementara untuk lihat template asli
+//quiz time attack
 
+Route::get('/quiz_time',['as' => '/quiz_time','uses' => 'UserController@list_surah_time']);
+
+Route::post('/quiz_time',['as' => '/quiz_time','uses' => 'UserController@list_surah_time_submit']);
+
+Route::get('/quiz_time_first',['as' => '/quiz_time_first','uses' => 'UserController@quiz_time_first']);
+
+
+Route::post('/quiz_time_first',['as' => 'quiz_time_first/', 'uses' => 'UserController@quiz_time_first_submit']);
 
 
 

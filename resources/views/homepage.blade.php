@@ -56,7 +56,7 @@ disini
 
         <div class="row no-collapse 50% uniform">
             <div class="6u"><a href="{{ route('/quiz')}}"><span class="image fit"><img src="images/menu1.png" alt="" /></span></a></div>
-            <div class="6u"><a href="#"><span class="image fit"><img src="images/menu2.png" alt="" /></span></a></div>
+            <div class="6u"><a href="{{ route('/quiz_time')}}"><span class="image fit"><img src="images/menu2.png" alt="" /></span></a></div>
         </div>
 
          <div class="row no-collapse 50% uniform">

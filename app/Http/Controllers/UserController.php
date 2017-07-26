@@ -203,6 +203,10 @@ class UserController extends Controller
 			session_start();
 			return view('quiz2');
 	}
+	
+	
+	//Classic
+	
 	//ambil surah
 	public function list_surah(){
 		session_start();
@@ -214,7 +218,7 @@ class UserController extends Controller
 	session_start();
 		
 		$_SESSION["surah"] = Input::get('listSurah');
-		return  Input::get('listSurah');
+		
 		 $t = Config::get('constants.AL_QURAN');
 		
 		//return $t->ayah('10:10')->data->text;
@@ -395,9 +399,180 @@ class UserController extends Controller
 	}
 	
 	
+	//time attack
 	
+	public function list_surah_time(){
+		session_start();
+		return view('classic/list_surah');
+
+	}
 	
+	public function list_surah_time_submit(){
+	session_start();
+		
+		$_SESSION["surah"] = Input::get('listSurah');
+		
+		 $t = Config::get('constants.AL_QURAN');
+		
+		//return $t->ayah('10:10')->data->text;
+		
+		 return redirect()->route('/quiz_time_first');
 	
+	}
+	//pertanyaan pertama
+	public function quiz_time_first(){
+		
+		session_start();
+			
+	
+	   $t = Config::get('constants.AL_QURAN');
+	    $randomAyat =  rand(1, 4);
+		$surah = $_SESSION["surah"];
+		//jika bismillah
+		if($randomAyat == 1 ){
+			$randomAyat = 2;
+		}
+
+		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
+		if(!isset($_SESSION["counterBenar"])	){
+			$_SESSION["counterBenar"] = 0;	
+		
+		}
+		
+		if(!isset($_SESSION["jumlahPertanyaan"])	){
+			$_SESSION["jumlahPertanyaan"] = 1;	
+		
+		}
+		if(isset($_POST["selesai"])){
+		$jumlahBenar= $_SESSION["counterBenar"] ;
+				unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+		}
+		
+		else{
+				if ($_SESSION["jumlahPertanyaan"] > 5) {
+					$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+				} 
+		}
+				
+		$sisaAyatAwal = mb_substr($fullAyat,0,6,'utf-8');
+		
+		$substringAyat =mb_substr($fullAyat,6,10,'utf-8');
+		
+		$sisaAyatAkhir = mb_substr($fullAyat,16,mb_strlen($fullAyat) ,'utf-8');
+
+		//substringAyat  (fullayat, x , y, 'utf-8')
+		//sisaAyatAwal   (fullayat, 0 , x, 'utf-8')
+		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
+		
+	//randomAyat di AlQuran untuk opsi lain
+		$randomPertama =  rand(0, 10);
+
+		
+		$opsi1 = mb_substr ($fullAyat, 1, 10, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 6, 16, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 1, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 6, 13, 'utf-8' );
+
+
+		$randomPosisi = rand(1,4);
+
+		//return $opsi1;
+
+		return view('quiz_time' , array( 'opsi1' => $opsi1,'opsi2' => $opsi2,'opsi3'=> $opsi3, 'fullAyat' => $fullAyat,'sisaAyatAwal'=>$sisaAyatAwal ,'sisaAyatAkhir' => $sisaAyatAkhir, 'substringAyat'=> $substringAyat,
+		'randomPosisi'=> $randomPosisi, 'opsi4'=> $opsi4
+		
+		
+		));
+			
+			
+			
+			
+			
+
+	}
+	
+	public function quiz_time_first_submit(){
+		
+		session_start();
+		if (isset($_POST['benar'])) {
+			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
+		} 
+		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
+		
+		if ($_SESSION["jumlahPertanyaan"] > 5) {
+			$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+		} 
+		
+		if(isset($_POST["selesai"])){
+						$jumlahBenar= $_SESSION["counterBenar"] ;
+						unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+		}
+		
+		
+		
+
+		 $randomAyat =  rand(1, 4);
+		 //jika bismillah
+		 if($randomAyat == 1 ){
+			$randomAyat = 2;
+		}
+		 $t = Config::get('constants.AL_QURAN');
+		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
+		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
+		//sisaAyatAkhir   (fullayat,  y+z, panjang ayat, 'utf-8')
+		//X selalu 0
+		 $fullAyat = $t->ayah($_SESSION["surah"].':'.$randomAyat)->data->text;
+		 
+		 $randomY =  rand(0, mb_strlen($fullAyat)/4);
+		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
+		 
+	
+		$sisaAyatAwal = mb_substr($fullAyat,0,$randomY,'utf-8');
+		
+		$substringAyat =mb_substr($fullAyat,$randomY, $randomZ ,'utf-8');
+		
+		$sisaAyatAkhir = mb_substr($fullAyat, $randomZ + $randomY,mb_strlen($fullAyat) ,'utf-8');
+		
+			//randomAyat di AlQuran
+		$randomPertama =  rand(0, 1000);
+
+		
+		
+		
+		$opsi1 = mb_substr ($fullAyat, 1, 10, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 6, 16, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 1, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 6, 13, 'utf-8' );
+
+		$randomPosisi = rand(1,4);
+		//return $opsi1;
+
+		return view('quiz_time' ,
+            array(
+                'opsi1' => $opsi1,
+                'opsi2' => $opsi2,
+                'opsi3'=> $opsi3,
+                'fullAyat' => $fullAyat,
+                'sisaAyatAwal'=>$sisaAyatAwal ,
+                'sisaAyatAkhir' => $sisaAyatAkhir,
+                'substringAyat'=> $substringAyat,
+                'randomPosisi'=> $randomPosisi,
+                'opsi4'=> $opsi4
+				
+		));
+		
+		
+	}
 	
 	
 	

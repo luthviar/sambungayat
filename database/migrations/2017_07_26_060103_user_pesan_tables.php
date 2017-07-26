@@ -13,7 +13,7 @@ class UserPesanTables extends Migration
      */
     public function up()
     {
-	   Schema::create('user_log', function (Blueprint $table) {
+	   Schema::create('feedback', function (Blueprint $table) {
 			$table->increments('id_user_pesan');
         	
 			
