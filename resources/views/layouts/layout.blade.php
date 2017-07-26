@@ -25,7 +25,7 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1><a href="#">SambungAyat</a></h1>
+					<h1><a href="{{ route('/') }}">SambungAyat</a></h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="{{ route('/') }}">Menu</a></li>				

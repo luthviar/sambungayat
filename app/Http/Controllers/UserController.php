@@ -238,6 +238,22 @@ class UserController extends Controller
 		
 		}
 		
+
+
+
+		if(isset($_POST['selesai'])){
+			$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+			
+		} 
+
+
+
+
+
+		
 		if(!isset($_SESSION["jumlahPertanyaan"])	){
 			$_SESSION["jumlahPertanyaan"] = 1;	
 		
@@ -310,6 +326,13 @@ class UserController extends Controller
 		session_start();
 		if (isset($_POST['benar'])) {
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
+		}
+		if(isset($_POST['selesai'])){
+			$jumlahBenar= $_SESSION["counterBenar"] ;
+					unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+
 		} 
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		

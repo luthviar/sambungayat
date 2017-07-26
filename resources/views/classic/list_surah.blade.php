@@ -28,7 +28,7 @@
 		<div class="row uniform">
 			<div class="12u">
 				<ul class="actions">
-					<li><input type="submit" value="Pilih surah" /></li>
+					<li><input type="submit" value="Mulai" /></li>
 					<li><a href="{{ route('/') }}" value="Kembali" class="button alt icon fa-chevron-left">Kembali</a></li>
 				</ul>
 			</div>
