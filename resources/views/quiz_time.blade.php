@@ -29,12 +29,12 @@ var x = setInterval(function() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
     // Output the result in an element with id='demo'
-    document.getElementById('demo').innerHTML = seconds + 's ';
+    document.getElementById('demo').innerHTML = 'Sisa waktu : ' + seconds + ' detik';
     
     // If the count down is over, write some text 
     if (distance < 0) {
        $("#myform").submit();
-	    document.getElementById("demo").innerHTML = "0s";
+	    document.getElementById("demo").innerHTML = "Waktu habis";
     }
 	
 	
@@ -48,11 +48,6 @@ var x = setInterval(function() {
 	
 
 
-
-
-
-<p id="demo"></p>
-
 <form id="myform" method="post" action="" >
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 											
@@ -60,9 +55,13 @@ var x = setInterval(function() {
 					<div class="row">
 						<div class="12u">
 								<section class="box">
-									<button href="#" class="button special fit"><h3 style="color:white;">Benar : {{ $_SESSION["counterBenar"] }} </h3></button>
-									<h4>{{ $_SESSION["jumlahPertanyaan"] }} dari 5 pertanyaan</h4>
+									<ul class="actions fit">
+										<li><button type="submit" class="button special fit"><h3 style="color:white;">Benar : {{ $_SESSION["counterBenar"] }} </h3></button></li>
+										<li><button type="submit" class="button special fit"><h3 id="demo" style="color:white;"></h3></button></li>
+									</ul>
 									
+									<h4>{{ $_SESSION["jumlahPertanyaan"] }} dari 5 pertanyaan</h4>
+																		
 									<h2 align="right">  {{$sisaAyatAwal}} 
 										<span>  .....  <span> 
 													{{$sisaAyatAkhir}} 
