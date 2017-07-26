@@ -72,6 +72,13 @@ Route::get('/quiz_time_first',['as' => '/quiz_time_first','uses' => 'UserControl
 
 Route::post('/quiz_time_first',['as' => 'quiz_time_first/', 'uses' => 'UserController@quiz_time_first_submit']);
 
+// untuk feedback
+
+Route::get('/feedback',['as' => 'feedback','uses' => 'UserController@showFeedbackForm']);
+
+Route::post('/feedback',['as' => 'feedback','uses' => 'UserController@storeFeedback']);
+
+
 
 
 

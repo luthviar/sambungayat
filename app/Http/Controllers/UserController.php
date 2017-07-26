@@ -12,6 +12,7 @@ use Validator;
 use Redirect;
 
 use App\UserModel;
+use App\Feedback;
 use Config;
 use Crypt;
 
@@ -71,6 +72,8 @@ class UserController extends Controller
 			
 			
 			$_SESSION["user"]= $user->username;
+
+			$_SESSION["user_id"]= $user->id_user;
 		
 	        return redirect()->route('/');
 	    }
@@ -130,7 +133,7 @@ class UserController extends Controller
 		session_start();
         session_unset();
         session_destroy();
-		 return redirect()->route('/login');
+		return redirect()->route('/login');
 		
 	}
 	
@@ -198,6 +201,23 @@ class UserController extends Controller
 			return view('index');
 	}
 
+	public function showFeedbackForm(){
+			session_start();
+			return view('feedback');
+	}
+
+	public function storeFeedback(Request $request){
+		session_start();
+
+		$feedback = new Feedback;
+        $feedback->id_user = $_SESSION["user_id"];
+        $feedback->feedback = $request->message;
+        
+        $feedback->save();
+        session()->flash('flash_message', 'Terima kasih. Pesan anda telah disimpan.');
+		return view('feedback');
+	}
+
 	
 	public function quiz2(){
 			session_start();
@@ -235,11 +255,7 @@ class UserController extends Controller
 	   $t = Config::get('constants.AL_QURAN');
 	    $randomAyat =  rand(1, 4);
 		$surah = $_SESSION["surah"];
-		//jika bismillah
-		if($randomAyat == 1 ){
-			$randomAyat = 2;
-		}
-
+		
 		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
 		if(!isset($_SESSION["counterBenar"])	){
 			$_SESSION["counterBenar"] = 0;	
@@ -250,13 +266,6 @@ class UserController extends Controller
 			$_SESSION["jumlahPertanyaan"] = 1;	
 		
 		}
-		if(isset($_POST["selesai"])){
-		$jumlahBenar= $_SESSION["counterBenar"] ;
-				unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
-		}
-		
 		else{
 				if ($_SESSION["jumlahPertanyaan"] > 5) {
 					$jumlahBenar= $_SESSION["counterBenar"] ;
@@ -276,7 +285,7 @@ class UserController extends Controller
 		//sisaAyatAwal   (fullayat, 0 , x, 'utf-8')
 		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
 		
-	//randomAyat di AlQuran untuk opsi lain
+	//randomAyat di AlQuran
 		$randomPertama =  rand(0, 10);
 
 		
@@ -335,21 +344,9 @@ class UserController extends Controller
 					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
-		if(isset($_POST["selesai"])){
-						$jumlahBenar= $_SESSION["counterBenar"] ;
-						unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
-		}
-		
-		
 		
 
 		 $randomAyat =  rand(1, 4);
-		 //jika bismillah
-		 if($randomAyat == 1 ){
-			$randomAyat = 2;
-		}
 		 $t = Config::get('constants.AL_QURAN');
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
