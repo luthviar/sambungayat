@@ -214,7 +214,7 @@ class UserController extends Controller
 	session_start();
 		
 		$_SESSION["surah"] = Input::get('listSurah');
-		
+		return  Input::get('listSurah');
 		 $t = Config::get('constants.AL_QURAN');
 		
 		//return $t->ayah('10:10')->data->text;
