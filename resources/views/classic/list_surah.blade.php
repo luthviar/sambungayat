@@ -18,6 +18,10 @@
 						<option value="112">Surat Al-Ikhlas (Ikhlas)</option>
 						<option value="113">Surat Al-Falaq (Waktu Subuh)</option>
 						<option value="114">Surat An-Nas (Umat manusia)</option>
+						<option value="114">Surat An-Nas (Umat manusia)</option>
+						<option value="110">Surat An-Nasr </option>
+						<option value="111">Surat Al-Masad </option>
+						
 					</select>
 				</div>
 			</div>
