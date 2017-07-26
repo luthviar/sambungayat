@@ -253,8 +253,16 @@ class UserController extends Controller
 			
 	
 	   $t = Config::get('constants.AL_QURAN');
-	    $randomAyat =  rand(1, 4);
+	    
 		$surah = $_SESSION["surah"];
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		
+		if($randomAyat == 1){
+			$randomAyat = 2;
+		}
 		
 		if(isset($_POST["selesai"])){
 		$jumlahBenar= $_SESSION["counterBenar"] ;
@@ -360,9 +368,23 @@ class UserController extends Controller
 		} 
 		
 		
-
-		 $randomAyat =  rand(1, 4);
-		 $t = Config::get('constants.AL_QURAN');
+		$t = Config::get('constants.AL_QURAN');
+		   
+		$surah = $_SESSION["surah"];
+		
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		 
+		 
+		 
+		 if($randomAyat == 1){
+			$randomAyat = 2;
+		}
+		 
+		 
+		
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
 		//sisaAyatAkhir   (fullayat,  y+z, panjang ayat, 'utf-8')
@@ -438,8 +460,14 @@ class UserController extends Controller
 			
 	
 	   $t = Config::get('constants.AL_QURAN');
-	    $randomAyat =  rand(1, 4);
+	    
 		$surah = $_SESSION["surah"];
+		
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		
 		//jika bismillah
 		if($randomAyat == 1 ){
 			$randomAyat = 2;
@@ -531,9 +559,14 @@ class UserController extends Controller
 		}
 		
 		
-		
+		 $t = Config::get('constants.AL_QURAN');
 
-		 $randomAyat =  rand(1, 4);
+	   
+		$surah = $_SESSION["surah"];
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
 		 //jika bismillah
 		 if($randomAyat == 1 ){
 			$randomAyat = 2;
