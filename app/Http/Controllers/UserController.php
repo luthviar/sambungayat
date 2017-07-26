@@ -88,7 +88,7 @@ class UserController extends Controller
     }
 
     public function registrasi_submit() {
-	session_start();
+		session_start();
     	$validator = Validator::make(
         Input::all(),
         array(
@@ -113,10 +113,10 @@ class UserController extends Controller
 			$user->nama_lengkap    = Input::get('nama_lengkap');
 			$user->email    = Input::get('email');
 	        $user->password = Crypt::encrypt(Input::get('password'));
-			 $user->save();
+			$user->save();
 
 			
-	        
+	        session()->flash('flash_message', 'Selamat! Silahkan login dengan akun anda.');
 	        return redirect()->route('/login');
 	    }
 
