@@ -13,12 +13,10 @@ class UserPesanTables extends Migration
      */
     public function up()
     {
-	   Schema::create('user_log', function (Blueprint $table) {
-			$table->increments('id_user_pesan');
-        	
-			
-			$table-> unsignedInteger ('id_user');
-			$table-> unsignedInteger ('id_saran');
+	   Schema::create('feedback', function (Blueprint $table) {
+			$table->increments('id');
+			$table->unsignedInteger ('id_user');
+			$table->text('feedback');
 	
 		 
 		 			

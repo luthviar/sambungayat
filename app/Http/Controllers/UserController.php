@@ -12,6 +12,7 @@ use Validator;
 use Redirect;
 
 use App\UserModel;
+use App\Feedback;
 use Config;
 use Crypt;
 
@@ -71,6 +72,8 @@ class UserController extends Controller
 			
 			
 			$_SESSION["user"]= $user->username;
+
+			$_SESSION["user_id"]= $user->id_user;
 		
 	        return redirect()->route('/');
 	    }
@@ -130,7 +133,7 @@ class UserController extends Controller
 		session_start();
         session_unset();
         session_destroy();
-		 return redirect()->route('/login');
+		return redirect()->route('/login');
 		
 	}
 	
@@ -203,9 +206,16 @@ class UserController extends Controller
 			return view('feedback');
 	}
 
-	public function storeFeedback(){
-			session_start();
-			return view('feedback');
+	public function storeFeedback(Request $request){
+		session_start();
+
+		$feedback = new Feedback;
+        $feedback->id_user = $_SESSION["user_id"];
+        $feedback->feedback = $request->message;
+        
+        $feedback->save();
+        session()->flash('flash_message', 'Terima kasih. Pesan anda telah disimpan.');
+		return view('feedback');
 	}
 
 	
