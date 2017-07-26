@@ -235,7 +235,7 @@ class UserController extends Controller
 		if($randomAyat == 1 ){
 			$randomAyat = 2;
 		}
-		
+
 		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
 		if(!isset($_SESSION["counterBenar"])	){
 			$_SESSION["counterBenar"] = 0;	
