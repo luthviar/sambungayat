@@ -62,6 +62,11 @@ Route::get('/quiz2',['as' => '/quiz2','uses' => 'UserController@quiz2']);
 
 // Sementara untuk lihat template asli
 
+// untuk feedback
+
+Route::get('/feedback',['as' => 'feedback','uses' => 'UserController@showFeedbackForm']);
+
+Route::post('/feedback',['as' => 'feedback','uses' => 'UserController@storeFeedback']);
 
 
 

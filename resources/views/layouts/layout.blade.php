@@ -28,7 +28,8 @@
 					<h1><a href="{{ route('/') }}">SambungAyat</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="{{ route('/') }}">Menu</a></li>				
+							<li><a href="{{ route('/') }}">Menu</a></li>
+							<li><a href="{{ route('feedback') }}">Beri Masukan</a></li>								
 							<li>
 								<a href="#" class="icon fa-user">
 									<?php 
