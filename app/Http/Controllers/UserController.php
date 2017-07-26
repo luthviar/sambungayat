@@ -444,7 +444,7 @@ class UserController extends Controller
 		$jumlahBenar= $_SESSION["counterBenar"] ;
 				unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
 		else{
@@ -452,7 +452,7 @@ class UserController extends Controller
 					$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 				} 
 		}
 				
@@ -505,14 +505,14 @@ class UserController extends Controller
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
 		if(isset($_POST["selesai"])){
 						$jumlahBenar= $_SESSION["counterBenar"] ;
 						unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
 		
