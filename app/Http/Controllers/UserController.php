@@ -238,22 +238,6 @@ class UserController extends Controller
 		
 		}
 		
-
-
-
-		if(isset($_POST['selesai'])){
-			$jumlahBenar= $_SESSION["counterBenar"] ;
-					unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
-			
-		} 
-
-
-
-
-
-		
 		if(!isset($_SESSION["jumlahPertanyaan"])	){
 			$_SESSION["jumlahPertanyaan"] = 1;	
 		
@@ -281,10 +265,10 @@ class UserController extends Controller
 		$randomPertama =  rand(0, 10);
 
 		
-		$opsi1 = mb_substr ($fullAyat, 1, 5, 'utf-8' );
-		$opsi2 = mb_substr ($fullAyat, 3, 7, 'utf-8' );
-		$opsi3 = mb_substr ($fullAyat, 2, 6, 'utf-8' );
-		$opsi4 = mb_substr ($fullAyat, 10, 1, 'utf-8' );
+		$opsi1 = mb_substr ($fullAyat, 1, 10, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 6, 16, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 1, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 6, 13, 'utf-8' );
 
 
 		$randomPosisi = rand(1,4);
@@ -326,13 +310,6 @@ class UserController extends Controller
 		session_start();
 		if (isset($_POST['benar'])) {
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
-		}
-		if(isset($_POST['selesai'])){
-			$jumlahBenar= $_SESSION["counterBenar"] ;
-					unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
-
 		} 
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		
@@ -368,10 +345,11 @@ class UserController extends Controller
 
 		
 		
-		$opsi1 = mb_substr ($fullAyat, 1, 5, 'utf-8' );
-		$opsi2 = mb_substr ($fullAyat, 4, 8, 'utf-8' );
-		$opsi3 = mb_substr ($fullAyat, 2, 6, 'utf-8' );
-		$opsi4 = mb_substr ($fullAyat, 5, 10, 'utf-8' );
+		
+		$opsi1 = mb_substr ($fullAyat, 1, 10, 'utf-8' );
+		$opsi2 = mb_substr ($fullAyat, 6, 16, 'utf-8' );
+		$opsi3 = mb_substr ($fullAyat, 1, 6, 'utf-8' );
+		$opsi4 = mb_substr ($fullAyat, 6, 13, 'utf-8' );
 
 		$randomPosisi = rand(1,4);
 		//return $opsi1;
