@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
   <title>SambungAyat</title>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- main css -->
   <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -37,7 +37,12 @@
       </header>
       <div class="box">
         <form method="post" action="#">
-
+          @if(Session::has('flash_message'))
+              <div class="alert alert-success">
+                  {{ Session::get('flash_message') }}
+              </div>
+          @endif
+          <br/>
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
           <div class="row uniform 50%">
@@ -102,6 +107,7 @@
   <script type="text/javascript" src="{{ URL::asset('js/skel.min.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/util.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 </html>
