@@ -474,7 +474,7 @@ class UserController extends Controller
 						else{
 							$score_awal = $user->total_score;
 							
-							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+							$score_akhir = ($score_awal +  $jumlahBenar);
 								
 								
 											DB::table('score')
@@ -627,7 +627,7 @@ class UserController extends Controller
 						else{
 							$score_awal = $user->total_score;
 							
-							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+							$score_akhir = ($score_awal +  $jumlahBenar);
 								
 								
 											DB::table('score')
@@ -663,7 +663,7 @@ class UserController extends Controller
 						else{
 							$score_awal = $user->total_score;
 							
-							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+							$score_akhir = ($score_awal +  $jumlahBenar);
 								
 								
 											DB::table('score')
