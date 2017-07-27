@@ -12,8 +12,8 @@
 		<table class="alt">
 			<thead>
 				<tr>
-					<th>Nama</th>
-					<th>Skor</th>
+					<th><strong>Nama</strong></th>
+					<th><strong>Skor</strong></th>
 					
 				</tr>
 			</thead>

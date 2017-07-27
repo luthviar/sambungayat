@@ -56,8 +56,8 @@ var x = setInterval(function() {
 						<div class="12u">
 								<section class="box">
 									<ul class="actions fit">
-										<li><button type="submit" class="button special fit"><h3 style="color:white;">Benar : {{ $_SESSION["counterBenar"] }} </h3></button></li>
-										<li><button type="submit" class="button special fit"><h3 id="demo" style="color:white;"></h3></button></li>
+										<li><button type="submit" class="button special fit" style="color:white;">Benar : {{ $_SESSION["counterBenar"] }} </button></li>
+										<li><button type="submit" id="demo" class="button special fit" style="color:white;"></button></li>
 									</ul>
 									
 									<h4>{{ $_SESSION["jumlahPertanyaan"] }} dari 5 pertanyaan</h4>
@@ -70,7 +70,7 @@ var x = setInterval(function() {
 									<!-- PIlihan jawaban -->
 									<style type="text/css">
 										#jawaban1 li, #jawaban2 li  {
-										    font-size: 200%;
+										    font-size: 30px;
 										}
 									</style>
 									<ul class="actions fit" id="jawaban1">
