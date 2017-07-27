@@ -21,7 +21,7 @@ class UserController extends Controller
 	
 	public function index() {
 		session_start();
-    	return view('index');
+    	return view('homepage');
     }
 	public function login(){
 		session_start();
@@ -75,7 +75,7 @@ class UserController extends Controller
 
 			$_SESSION["user_id"]= $user->id_user;
 		
-	        return redirect()->route('/home');
+	        return redirect()->route('/');
 	    }
 
 	    else {
@@ -198,7 +198,7 @@ class UserController extends Controller
 
 	public function home(){
 			session_start();
-			return view('homepage');
+			return view('index');
 	}
 
 	public function showFeedbackForm(){

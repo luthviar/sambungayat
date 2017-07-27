@@ -22,7 +22,7 @@
 									<!-- PIlihan jawaban -->
 									<style type="text/css">
 										#jawaban1 li, #jawaban2 li  {
-										    font-size: 100px;
+										    font-size: 30px;
 										}
 									</style>
 									<ul class="actions fit" id="jawaban1">

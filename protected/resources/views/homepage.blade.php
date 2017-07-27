@@ -12,7 +12,7 @@
     }
                         //jika belum login
     else {
-     header( "refresh:0;/login" );
+     header( "refresh:0;login" );
      return "";
  }
  ?>
