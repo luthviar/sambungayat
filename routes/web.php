@@ -79,7 +79,8 @@ Route::get('/feedback',['as' => 'feedback','uses' => 'UserController@showFeedbac
 Route::post('/feedback',['as' => 'feedback','uses' => 'UserController@storeFeedback']);
 
 
-
+//
+Route::get('/highscore',['as' => '/highscore','uses' => 'UserController@highscore']);
 
 
 //kodingan versi1

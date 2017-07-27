@@ -253,8 +253,59 @@ class UserController extends Controller
 			
 	
 	   $t = Config::get('constants.AL_QURAN');
-	    $randomAyat =  rand(1, 4);
+	    
 		$surah = $_SESSION["surah"];
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		
+		if($randomAyat == 1){
+			$randomAyat = 2;
+		}
+		
+		if(isset($_POST["selesai"])){
+		$jumlahBenar= $_SESSION["counterBenar"] ;
+				unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+						
+						
+
+						
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+
+						
+						
+						
+						
+						
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+		}
 		
 		$fullAyat = $t->ayah($surah.':'.$randomAyat)->data->text;
 		if(!isset($_SESSION["counterBenar"])	){
@@ -271,6 +322,37 @@ class UserController extends Controller
 					$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+					
+					
+					
+					
+					
+					
+					
 					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
 				} 
 		}
@@ -335,19 +417,99 @@ class UserController extends Controller
 		if (isset($_POST['benar'])) {
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
 		} 
+		
+		if(isset($_POST["selesai"])){
+			$jumlahBenar= $_SESSION["counterBenar"] ;
+				unset($_SESSION["jumlahPertanyaan"]);
+						unset($_SESSION["counterBenar"]);
+				
+				
+				
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+				
+				
+				
+					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+		}
+		
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		
 		if ($_SESSION["jumlahPertanyaan"] > 5) {
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+						
+
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+						
+						
+						
+						
 					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
 		
-
-		 $randomAyat =  rand(1, 4);
-		 $t = Config::get('constants.AL_QURAN');
+		$t = Config::get('constants.AL_QURAN');
+		   
+		$surah = $_SESSION["surah"];
+		
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		 
+		 
+		 
+		 if($randomAyat == 1){
+			$randomAyat = 2;
+		}
+		 
+		 
+		
 		 //substringAyat  (fullayat, y , z (dimana z > y), 'utf-8')
 		//sisaAyatAwal   (fullayat, x , y (dimana y > x), 'utf-8')
 		//sisaAyatAkhir   (fullayat,  y+z, panjang ayat, 'utf-8')
@@ -423,8 +585,14 @@ class UserController extends Controller
 			
 	
 	   $t = Config::get('constants.AL_QURAN');
-	    $randomAyat =  rand(1, 4);
+	    
 		$surah = $_SESSION["surah"];
+		
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
+		
 		//jika bismillah
 		if($randomAyat == 1 ){
 			$randomAyat = 2;
@@ -444,7 +612,34 @@ class UserController extends Controller
 		$jumlahBenar= $_SESSION["counterBenar"] ;
 				unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+						
+		
+		
+						return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
 		else{
@@ -452,7 +647,43 @@ class UserController extends Controller
 					$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+							}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+
+						
+						
+						
+						
+						
+						
+						
+						
+						return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 				} 
 		}
 				
@@ -505,6 +736,34 @@ class UserController extends Controller
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+					
+					
+					
+					
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
@@ -512,13 +771,55 @@ class UserController extends Controller
 						$jumlahBenar= $_SESSION["counterBenar"] ;
 						unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					
+					
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+						
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
 		
-		
+		 $t = Config::get('constants.AL_QURAN');
 
-		 $randomAyat =  rand(1, 4);
+	   
+		$surah = $_SESSION["surah"];
+		
+		$surah_text = $t->surah($surah);
+		
+		$randomAyat =  rand(1,  $surah_text->data->numberOfAyahs);
 		 //jika bismillah
 		 if($randomAyat == 1 ){
 			$randomAyat = 2;
@@ -572,5 +873,20 @@ class UserController extends Controller
 	}
 	
 	
+	public function highscore(){
+					session_start();
+					
+					
+					$ranking = DB::table('score')->orderBy('total_score', 'desc')->limit(10)->get();
+					
+					
+					return view('highscore' ,
+						array(
+							'ranking' => $ranking
+							
+					));
+				
+	
+	}
 	
 }
