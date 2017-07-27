@@ -516,7 +516,7 @@ class UserController extends Controller
 		//X selalu 0
 		 $fullAyat = $t->ayah($_SESSION["surah"].':'.$randomAyat)->data->text;
 		 
-		 $randomY =  rand(0, mb_strlen($fullAyat)/4);
+		 $randomY =  rand(2, mb_strlen($fullAyat)/4);
 		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
 		 
 	
@@ -673,13 +673,7 @@ class UserController extends Controller
 								
 								
 						}
-						
-
-						
-						
-						
-						
-						
+								
 						
 						
 						
@@ -687,12 +681,16 @@ class UserController extends Controller
 				} 
 		}
 				
-		$sisaAyatAwal = mb_substr($fullAyat,0,6,'utf-8');
+		$randomY =  rand(2, mb_strlen($fullAyat)/4);
+		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
+		 
+	
+		$sisaAyatAwal = mb_substr($fullAyat,0,$randomY,'utf-8');
 		
-		$substringAyat =mb_substr($fullAyat,6,10,'utf-8');
+		$substringAyat =mb_substr($fullAyat,$randomY, $randomZ ,'utf-8');
 		
-		$sisaAyatAkhir = mb_substr($fullAyat,16,mb_strlen($fullAyat) ,'utf-8');
-
+		$sisaAyatAkhir = mb_substr($fullAyat, $randomZ + $randomY,mb_strlen($fullAyat) ,'utf-8');
+		
 		//substringAyat  (fullayat, x , y, 'utf-8')
 		//sisaAyatAwal   (fullayat, 0 , x, 'utf-8')
 		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
@@ -831,7 +829,7 @@ class UserController extends Controller
 		//X selalu 0
 		 $fullAyat = $t->ayah($_SESSION["surah"].':'.$randomAyat)->data->text;
 		 
-		 $randomY =  rand(0, mb_strlen($fullAyat)/4);
+		 $randomY =  rand(2, mb_strlen($fullAyat)/4);
 		 $randomZ =  rand($randomY , mb_strlen($fullAyat)/4);
 		 
 	
