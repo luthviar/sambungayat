@@ -875,7 +875,10 @@ class UserController extends Controller
 					session_start();
 					
 					
-					$ranking = DB::table('score')->orderBy('total_score', 'desc')->limit(10)->get();
+					$ranking = DB::table('score')->orderBy('total_score', 'desc')->limit(10)
+					 ->join('user', 'user.id_user', '=', 'score.id_user')
+					
+					->get();
 					
 					
 					return view('highscore' ,
