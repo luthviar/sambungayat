@@ -268,6 +268,42 @@ class UserController extends Controller
 		$jumlahBenar= $_SESSION["counterBenar"] ;
 				unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+						
+						
+
+						
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+
+						
+						
+						
+						
+						
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
@@ -286,6 +322,37 @@ class UserController extends Controller
 					$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+					
+					
+					
+					
+					
+					
+					
 					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
 				} 
 		}
@@ -355,6 +422,34 @@ class UserController extends Controller
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 				unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+				
+				
+				
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+				
+				
+				
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
@@ -364,6 +459,36 @@ class UserController extends Controller
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+						
+
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+						
+						
+						
+						
 					return view('selesai',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
@@ -487,7 +612,34 @@ class UserController extends Controller
 		$jumlahBenar= $_SESSION["counterBenar"] ;
 				unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+						
+		
+		
+						return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
 		else{
@@ -495,7 +647,43 @@ class UserController extends Controller
 					$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
-					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
+
+						
+						
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+							}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+								
+						}
+						
+
+						
+						
+						
+						
+						
+						
+						
+						
+						return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 				} 
 		}
 				
@@ -548,6 +736,34 @@ class UserController extends Controller
 			$jumlahBenar= $_SESSION["counterBenar"] ;
 					unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar)/2;
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+					
+					
+					
+					
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		} 
 		
@@ -555,6 +771,43 @@ class UserController extends Controller
 						$jumlahBenar= $_SESSION["counterBenar"] ;
 						unset($_SESSION["jumlahPertanyaan"]);
 						unset($_SESSION["counterBenar"]);
+					
+					
+					
+					
+						//cek apakah udah ada table score
+						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
+							//kalau belum bikin row baru
+						if($user == NULL){
+						
+								DB::table('score')->insert(
+									['id_user' => $_SESSION["user_id"], 'total_score' => $jumlahBenar]
+								);
+						}
+							//kalau udah diupdate aja
+						else{
+							$score_awal = $user->total_score;
+							
+							$score_akhir = ($score_awal +  $jumlahBenar);
+								
+								
+											DB::table('score')
+												  ->where('id_user', $user->id_user)
+													  ->update(['total_score' => $score_akhir]);
+										
+								
+						}
+						
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					return view('selesai_time',array( 'jumlahBenar' => $jumlahBenar));
 		}
 		
@@ -620,5 +873,20 @@ class UserController extends Controller
 	}
 	
 	
+	public function highscore(){
+					session_start();
+					
+					
+					$ranking = DB::table('score')->orderBy('total_score', 'desc')->limit(10)->get();
+					
+					
+					return view('highscore' ,
+						array(
+							'ranking' => $ranking
+							
+					));
+				
+	
+	}
 	
 }
