@@ -69,8 +69,10 @@ var x = setInterval(function() {
 
 									<!-- PIlihan jawaban -->
 									<style type="text/css">
-										#jawaban1 li, #jawaban2 li  {
-										    font-size: 30px;
+										#jawaban1 li button, #jawaban2 li button {
+										    font-size: 180%;
+											width: 100%;
+											min-width: 50px;
 										}
 									</style>
 									<ul class="actions fit" id="jawaban1">

@@ -4,12 +4,11 @@
 
 @section('content')
 <style type="text/css">
-	#skor li {
-	    font-size: 200%;
-	}
-
-	#opsi li {
+	#skor li button {
 	    font-size: 150%;
+		width: 100%;
+		min-width: 50px;
+		
 	}
 </style>
 

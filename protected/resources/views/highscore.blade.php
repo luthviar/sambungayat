@@ -6,7 +6,7 @@
 
 
 <section class="box">
-    <h3>Peringkat Pengguna</h3>
+    <h3>10 Pengguna Terbaik</h3>
     
 	<div class="table-wrapper">
 		<table class="alt">
