@@ -737,6 +737,11 @@ class UserController extends Controller
 		if (isset($_POST['benar'])) {
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
 		} 
+
+		if(!isset($_SESSION["jumlahPertanyaan"])	){
+					$_SESSION["jumlahPertanyaan"] = 1;	
+		
+		}
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		
 		if ($_SESSION["jumlahPertanyaan"] > 5) {
