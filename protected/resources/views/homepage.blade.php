@@ -55,13 +55,14 @@ disini
     <div class="box alt">
 
         <div class="row no-collapse 50% uniform">
-            <div class="6u"><a href="{{ route('/quiz')}}"><span class="image fit"><img src="images/menu1.png" alt="" /></span></a></div>
-            <div class="6u"><a href="{{ route('/quiz_time')}}"><span class="image fit"><img src="images/menu2.png" alt="" /></span></a></div>
+            <div class="6u"><a href="{{ route('/quiz')}}"><span class="image fit"><img src="images/menu1.png" alt="classic" /></span></a></div>
+
+            <div class="6u"><a href="{{ route('/quiz_time')}}"><span class="image fit"><img src="images/menu2.png" alt="time-attack" /></span></a></div>
         </div>
 
          <div class="row no-collapse 50% uniform">
-            <div class="6u"><a href="#"><span class="image fit"><img src="images/menu3.png" alt="" /></span></a></div>
-            <div class="6u"><a href="{{ route('/highscore')}}"><span class="image fit"><img src="images/menu4.png" alt="" /></span></a></div>
+            <div class="6u"><a href="#"><span class="image fit"><img src="images/menu3.png" alt="muhasabah" onclick="comingsoon()" /></span></a></div>
+            <div class="6u"><a href="{{ route('/highscore')}}"><span class="image fit"><img src="images/menu4.png" alt="high-score" /></span></a></div>
         </div>
 
     </div>
@@ -72,7 +73,9 @@ disini
 </div>
 </div>
 
-
+<script type="text/javascript">
+  function comingsoon() { alert("ComingSoon"); }
+</script>
 
 
 

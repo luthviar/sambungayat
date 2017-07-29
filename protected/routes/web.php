@@ -93,19 +93,6 @@ Route::get('/test',['as' => '/test','uses' => 'UserController@awal_pertanyaan'])
 
 Route::get('test/{valueBenar}',['as' => 'test/', 'uses' => 'TestController@pertanyaan']);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('elements', function () {
     return view('elements');
 });
@@ -114,3 +101,4 @@ Route::get('generic', function () {
     return view('generic');
 });
 
+Route::get('/list-user', 'UserController@showAll');

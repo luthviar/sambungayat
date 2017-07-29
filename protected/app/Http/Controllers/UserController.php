@@ -203,6 +203,11 @@ class UserController extends Controller
 			return view('feedback');
 	}
 
+	public function showAll() {
+		$allusers = DB::table('score')-get();
+		dd($allusers);
+	}
+
 	public function storeFeedback(Request $request){
 		session_start();
 
