@@ -29,7 +29,7 @@ $(document).ready(function() {
 							<option value="112">112.Surat Al-Ikhlas</option>
 							<option value="111">111.Surat Al-Lahab</option>
 							<option value="110">110.Surat An-Nashr</option>
-							<option value="109">109.Surat Al-orang-orang kafir</option>
+							<option value="109">109.Surat Al-Kafirun</option>
 							<option value="108">108.Surat Al-Kautsar</option>
 							<option value="107">107.Surat Al-Ma'un</option>
 							<option value="106">106.Surah Quraish</option>
