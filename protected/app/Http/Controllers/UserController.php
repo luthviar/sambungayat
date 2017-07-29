@@ -204,8 +204,15 @@ class UserController extends Controller
 	}
 
 	public function showAll() {
-		$allusers = DB::table('score')-get();
-		dd($allusers);
+		$allusers = DB::table('user')->get();
+		$countusers = DB::table('user')->count();
+
+		
+		return view('list-user' ,
+			array(
+				'users' => $allusers,
+				'countusers' => $countusers
+			));
 	}
 
 	public function storeFeedback(Request $request){
