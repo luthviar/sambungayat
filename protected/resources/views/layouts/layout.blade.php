@@ -21,7 +21,8 @@
 		<!-- main css -->
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		
+
+		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}" />
 	</head>
 	<body>
 		<div id="page-wrapper">
