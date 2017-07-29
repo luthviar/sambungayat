@@ -42,7 +42,7 @@ $is_terisi = true;
 @if($is_terisi == true)
 
 <div class="alert alert-warning">
-  <strong>Warning!</strong> Anda belum mengisi profil anda. Silahkan ganti profil anda <a a href= "{{ route('/ganti_profil') }}">
+  <strong>Warning!</strong> Anda belum mengisi profil anda. Silahkan ganti profil Anda <a a href= "{{ route('/ganti_profil') }}">
 disini
 </a>.
 </div>
