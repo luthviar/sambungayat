@@ -734,14 +734,16 @@ class UserController extends Controller
 	public function quiz_time_first_submit(){
 		
 		session_start();
+		
+
+		
+		
+		
 		if (isset($_POST['benar'])) {
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
 		} 
 
-		if(!isset($_SESSION["jumlahPertanyaan"])	){
-					$_SESSION["jumlahPertanyaan"] = 1;	
 		
-		}
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		
 		if ($_SESSION["jumlahPertanyaan"] > 5) {
@@ -781,8 +783,6 @@ class UserController extends Controller
 		
 		if(isset($_POST["selesai"])){
 						$jumlahBenar= $_SESSION["counterBenar"] ;
-						unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
 					
 					
 					
