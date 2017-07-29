@@ -571,6 +571,21 @@ class UserController extends Controller
 	
 	public function list_surah_time(){
 		session_start();
+
+					if(isset($_SESSION["jumlahPertanyaan"])	){
+						unset($_SESSION["jumlahPertanyaan"]);
+			
+			
+					}
+					
+					if(isset($_SESSION["counterBenar"])	){
+							unset($_SESSION["counterBenar"]);
+			
+			
+					}
+	
+
+		
 		return view('classic/list_surah');
 
 	}
@@ -620,6 +635,7 @@ class UserController extends Controller
 		if(isset($_POST["selesai"])){
 		$jumlahBenar= $_SESSION["counterBenar"] ;
 					
+						
 						//cek apakah udah ada table score
 						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
 							//kalau belum bikin row baru
@@ -651,9 +667,6 @@ class UserController extends Controller
 		else{
 				if ($_SESSION["jumlahPertanyaan"] > 5) {
 					$jumlahBenar= $_SESSION["counterBenar"] ;
-					unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-
 						
 						
 						//cek apakah udah ada table score
@@ -732,7 +745,6 @@ class UserController extends Controller
 		
 		session_start();
 		
-
 		
 		
 		
@@ -740,13 +752,10 @@ class UserController extends Controller
 			$_SESSION["counterBenar"]= $_SESSION["counterBenar"] + 1  ;	
 		} 
 
-		
 		$_SESSION["jumlahPertanyaan"] = $_SESSION["jumlahPertanyaan"]+1;	
 		
 		if ($_SESSION["jumlahPertanyaan"] > 5) {
 			$jumlahBenar= $_SESSION["counterBenar"] ;
-					unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
 					
 					
 					//cek apakah udah ada table score
