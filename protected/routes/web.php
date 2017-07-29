@@ -72,6 +72,11 @@ Route::get('/quiz_time_first',['as' => '/quiz_time_first','uses' => 'UserControl
 
 Route::post('/quiz_time_first',['as' => 'quiz_time_first/', 'uses' => 'UserController@quiz_time_first_submit']);
 
+
+
+Route::get('/kill',['as' => 'killSession/', 'uses' => 'UserController@killSession']);
+
+
 // untuk feedback
 
 Route::get('/feedback',['as' => 'feedback','uses' => 'UserController@showFeedbackForm']);

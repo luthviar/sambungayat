@@ -898,5 +898,12 @@ class UserController extends Controller
 				
 	
 	}
+	public function killSession(){
+				ini_set('session.gc_max_lifetime', 0);
+				ini_set('session.gc_probability', 1);
+				ini_set('session.gc_divisor', 1);
+				
+				return "berhasil";
+	}
 	
 }
