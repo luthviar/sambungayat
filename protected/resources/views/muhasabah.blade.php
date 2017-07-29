@@ -100,7 +100,7 @@
 				    
 						</div>
 						<div class="col-md-8">
-							<img width="100%" height="100%" src="images/ayat1.png" alt="muhasabah" />
+							<img width="100%" height="100%" src="{{ URL::asset('images/ayat1.png') }}" alt="muhasabah" />
 							<p 
 								class="text-right"
 								style="color: white; margin:0;" 
@@ -136,7 +136,7 @@
 
 						</div>
 						<div class="col-md-8">
-							<img width="100%" height="100%" src="images/ayat2.png" alt="muhasabah" />
+							<img width="100%" height="100%" src="{{ URL::asset('images/ayat2.png') }}" alt="muhasabah" />
 
 							<p 
 								class="text-right"
