@@ -619,10 +619,7 @@ class UserController extends Controller
 		}
 		if(isset($_POST["selesai"])){
 		$jumlahBenar= $_SESSION["counterBenar"] ;
-				unset($_SESSION["jumlahPertanyaan"]);
-						unset($_SESSION["counterBenar"]);
-						
-						
+					
 						//cek apakah udah ada table score
 						$user = DB::table('score')->where('id_user', $_SESSION["user_id"])->first();
 							//kalau belum bikin row baru
