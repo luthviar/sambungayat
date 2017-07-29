@@ -16,7 +16,16 @@
 		 }
 		 ?>
      </h1>
-     </header>
+
+     <h5>Level Anda : <b>Beginner</b></h5>
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+      60% Experiences
+    </div>
+  </div>
+  
+</header>
 <section class="box">
 
     
