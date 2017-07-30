@@ -915,17 +915,35 @@ class UserController extends Controller
 					session_start();
 					
 					
-					$ranking = DB::table('score')->orderBy('total_score', 'desc')->limit(10)
-					 ->join('user', 'user.id_user', '=', 'score.id_user')
-					
+					$query = DB::table('score')->orderBy('total_score', 'desc')
+					 ->join('user', 'user.id_user', '=', 'score.id_user');					
+					$ranking = $query->limit(10)
+		
 					->get();
+
+
+
 					
-					
-					return view('highscore' ,
+					$userscores = $query->where('user.id_user', $_SESSION["user_id"])->first();
+
+					$countscore = DB::table('score')->count();
+
+					if($userscores == NULL){					
+						
+						return view('highscore' ,
 						array(
-							'ranking' => $ranking
-							
-					));
+							'ranking' => $ranking,							
+						));
+					} else {
+						return view('highscore2' ,
+						array(
+							'ranking' => $ranking,
+							'userscores' => $userscores,
+							'countscore'=> $countscore
+						));
+					}
+
+					
 				
 	
 	}

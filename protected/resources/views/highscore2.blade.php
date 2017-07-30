@@ -19,13 +19,21 @@
      </h1>
 
      <h5>Level Anda : <b>Beginner</b></h5>
-
+      
   <div class="progress">
     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
       60% Experiences
     </div>
   </div>
-  
+  	<hr>
+  	
+  		<h1 style="font-size: 150%;" class="text-center">  
+  			Skor Anda: <b>{{ $userscores->total_score }}</b>
+  		</h1>
+  		<h1 style="font-size: 150%;" class="text-center">  
+  			 dari <b>{{ $countscore }}</b> pengguna
+  		</h1>
+
 </header>
 
 <section class="box">
