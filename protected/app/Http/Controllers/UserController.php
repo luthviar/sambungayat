@@ -51,7 +51,11 @@ class UserController extends Controller
 	        $validator->getMessageBag()->add('wrong_username', 'username/password salah');
 	    }
 
-
+		else if((Crypt::decrypt($UserArr->first()->password) == Input::get('password'))!=1) {
+	        $validator->getMessageBag()->add('wrong_password', 'username/password salah ');
+	    }
+		
+		
 	    else {
 	        $flagSuccess = true;
 	    }
