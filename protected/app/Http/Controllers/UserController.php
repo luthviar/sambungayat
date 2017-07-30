@@ -926,7 +926,7 @@ class UserController extends Controller
 					
 					$userscores = $query->where('user.id_user', $_SESSION["user_id"])->first();
 
-					$countscore = DB::table('score')->count();
+					$countscore = DB::table('user')->count();
 
 					if($userscores == NULL){					
 						
