@@ -21,7 +21,14 @@
 		<!-- main css -->
 		<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		
+
+		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}" />
+
+		<style type="text/css">
+			.progress {
+				box-shadow: inset 0 1px 2px rgba(1,1,2,.9);
+			}
+		</style>
 	</head>
 	<body>
 		<div id="page-wrapper">

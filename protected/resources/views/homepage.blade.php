@@ -17,6 +17,14 @@
  }
  ?>
 </h2>
+  <h5>Level Anda : <b>Beginner</b></h5>
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+      60% Experiences
+    </div>
+  </div>
+
 </header>
 
 
@@ -42,7 +50,7 @@ $is_terisi = true;
 @if($is_terisi == true)
 
 <div class="alert alert-warning">
-  <strong>Warning!</strong> Anda belum mengisi profil anda. Silahkan ganti profil anda <a a href= "{{ route('/ganti_profil') }}">
+  <strong>Warning!</strong> Anda belum mengisi profil anda. Silahkan ganti profil Anda <a a href= "{{ route('/ganti_profil') }}">
 disini
 </a>.
 </div>
@@ -61,7 +69,7 @@ disini
         </div>
 
          <div class="row no-collapse 50% uniform">
-            <div class="6u"><a href="#"><span class="image fit"><img src="images/menu3.png" alt="muhasabah" onclick="comingsoon()" /></span></a></div>
+            <div class="6u"><a href="{{ route('/muhasabah')}}"><span class="image fit"><img src="images/menu3.png" alt="muhasabah" /></span></a></div>
             <div class="6u"><a href="{{ route('/highscore')}}"><span class="image fit"><img src="images/menu4.png" alt="high-score" /></span></a></div>
         </div>
 
