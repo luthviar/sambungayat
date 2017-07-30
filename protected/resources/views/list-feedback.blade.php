@@ -11,6 +11,7 @@
 		<tbody>
 			@foreach ($feeds as $feed)
 			<tr>
+				<td>{{ $feed->id }}</td>
 				<td>{{ $feed->id_user }}</td>
 				<td>{{ $feed->feedback }}</td>
 				<td>{{ $feed->created_at }}</td>
