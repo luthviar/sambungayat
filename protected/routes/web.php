@@ -87,6 +87,7 @@ Route::post('/feedback',['as' => 'feedback','uses' => 'UserController@storeFeedb
 //
 Route::get('/highscore',['as' => '/highscore','uses' => 'UserController@highscore']);
 
+Route::get('/highscore-juri',['as' => '/highscore-juri','uses' => 'UserController@highscorejuri']);
 
 //kodingan versi1
 

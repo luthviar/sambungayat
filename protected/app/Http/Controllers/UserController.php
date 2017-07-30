@@ -943,10 +943,28 @@ class UserController extends Controller
 						));
 					}
 
-					
+						
 				
 	
 	}
+
+	public function highscorejuri() {
+		session_start();
+
+		$ranking = DB::table('score')->orderBy('total_score', 'desc')
+					 ->join('user', 'user.id_user', '=', 'score.id_user')
+					 ->where('user.username','juri1')
+					 ->orWhere('user.username','juri2')
+					 ->orWhere('user.username','juri3')
+					 ->orWhere('user.username','admin')
+					 ->get()
+					 ;
+		return view('highscore3' ,
+						array(
+							'ranking' => $ranking,							
+						));
+	}
+
 	public function killSession(){
 				ini_set('session.gc_max_lifetime', 0);
 				ini_set('session.gc_probability', 1);
