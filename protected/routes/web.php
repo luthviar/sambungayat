@@ -109,3 +109,5 @@ Route::get('generic', function () {
 Route::get('/list-user', 'UserController@showAll');
 
 Route::get('/muhasabah', ['as' => '/muhasabah','uses' => 'MuhasabahController@index']);
+
+Route::get('/list-feedback','FeedbackController@index');

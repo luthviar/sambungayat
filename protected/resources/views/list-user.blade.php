@@ -11,6 +11,7 @@
 		<tbody>
 			@foreach ($users as $user)
 			<tr>
+				<td>{{ $user->id_user }}</td>
 				<td>{{ $user->nama_lengkap }}</td>
 				<td>{{ $user->username }}</td>
 				<td>{{ $user->email }}</td>
