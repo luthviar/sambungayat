@@ -14,7 +14,7 @@
    <input type="hidden" name="_token" value="{{ csrf_token() }}">
    <div class="row uniform 50%">
     <div class="12u">
-      <input type="text" name="alamat" value="" placeholder="Alamat (Isi dengan nama kota)" />
+      <input type="text" name="alamat" value="" placeholder="Alamat (Isi dengan nama kota)" required />
     </div>
   </div>
 
@@ -26,7 +26,7 @@
 
   <div class="row uniform 50%">
     <div class="12u">
-      <input type="text" name="tanggal" value="" placeholder="Waktu Bimbingan. Misal: Senin, 12.00-15.00" />
+      <input type="date" name="tanggal_lahir" value="" placeholder="tanggal lahir"  required />
     </div>
   </div>
 

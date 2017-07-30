@@ -146,7 +146,7 @@ class UserController extends Controller
 			Input::all(),
 			array(
 				"alamat" => "required",
-				"tanggal" => "required", //Harus email
+				"tanggal_lahir" => "required", //Harus email
 				
 				)
 			);
@@ -239,6 +239,22 @@ class UserController extends Controller
 	//ambil surah
 	public function list_surah(){
 		session_start();
+		
+				if(isset($_SESSION["jumlahPertanyaan"])	){
+						unset($_SESSION["jumlahPertanyaan"]);
+			
+			
+					}
+					
+				if(isset($_SESSION["counterBenar"])	){
+							unset($_SESSION["counterBenar"]);
+			
+			
+				}
+	
+		
+		
+		
 		return view('classic/list_surah');
 
 	}
@@ -373,8 +389,8 @@ class UserController extends Controller
 		$sisaAyatAkhir = mb_substr($fullAyat,16,mb_strlen($fullAyat) ,'utf-8');
 
 		//substringAyat  (fullayat, x , y, 'utf-8')
-		//sisaAyatAwal   (fullayat, 0 , x, 'utf-8')
-		//sisaAyatAkhir   (fullayat, 0 , x+y, 'utf-8')
+		//sisaAyatAwal   (fullayat, y , x, 'utf-8')
+		//sisaAyatAkhir   (fullayat, x+y , fullAyat, 'utf-8')
 		
 	//randomAyat di AlQuran
 		$randomPertama =  rand(0, 10);
