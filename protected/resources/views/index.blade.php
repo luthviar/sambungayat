@@ -37,6 +37,9 @@
 			<ul class="actions">
 				<li><a href="{{ route('/login') }}" class="button special">Main sekarang</a></li>
 			</ul>
+			<br>
+				<h5>Powered by :</h5>
+				<img src="{{ URL::asset('/images/logofuki.png')}}" width="50" height="50">
 		</section>
 
 		<!-- Main -->
